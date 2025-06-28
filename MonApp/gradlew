@@ -1,0 +1,22 @@
+#!/bin/sh
+# -----------------------------------------------------------------------------
+# Gradle start up script for UN*X
+#
+# @author Hans Dockter
+# @author Luke Daley
+# -----------------------------------------------------------------------------
+
+# Attempt to set JAVA_HOME if it's not set already
+if [ -z "$JAVA_HOME" ] ; then
+  if [ -x /usr/libexec/java_home ] ; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+  fi
+fi
+
+# Determine the location of the Gradle distribution
+DIRNAME=$(dirname "$0")
+# Resolve symbolic links
+APP_BASE_NAME=$(basename "$0")
+GRADLE_HOME=$DIRNAME/gradle
+
+exec "$JAVA_HOME/bin/java" -classpath "$GRADLE_HOME/wrapper/gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain "$@"
